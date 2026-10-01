@@ -12,78 +12,113 @@ class SmartCampusApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Smart Campus Management',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Smart Campus Management'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              const Text(
-                'Smart Campus Dashboard',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+      home: const DashboardScreen(),
+    );
+  }
+}
 
-              const SizedBox(height: 20),
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _dashboardItem(Icons.school, 'Students'),
-                  _dashboardItem(Icons.person, 'Faculty'),
-                  _dashboardItem(Icons.event, 'Events'),
-                ],
-              ),
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
 
-              const SizedBox(height: 30),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Smart Campus Management'),
+      ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          int columns;
 
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    height: 180,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.blue.shade100,
-                    ),
+          if (constraints.maxWidth < 600) {
+            columns = 2;
+          } else if (constraints.maxWidth < 1000) {
+            columns = 3;
+          } else {
+            columns = 4;
+          }
+
+          return Padding(
+            padding: EdgeInsets.all(screenWidth < 600 ? 12 : 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Smart Campus Dashboard',
+                  style: TextStyle(
+                    fontSize: screenWidth < 600 ? 22 : 30,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const Column(
-                    children: [
-                      Icon(
-                        Icons.location_city,
-                        size: 60,
+                ),
+
+                const SizedBox(height: 20),
+
+                Expanded(
+                  child: GridView.count(
+                    crossAxisCount: columns,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    children: const [
+                      DashboardCard(
+                        icon: Icons.school,
+                        title: 'Students',
                       ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Smart Campus',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      DashboardCard(
+                        icon: Icons.person,
+                        title: 'Faculty',
+                      ),
+                      DashboardCard(
+                        icon: Icons.event,
+                        title: 'Events',
+                      ),
+                      DashboardCard(
+                        icon: Icons.library_books,
+                        title: 'Library',
                       ),
                     ],
                   ),
-                ],
-              ),
-            ],
-          ),
-        ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
+}
 
-  static Widget _dashboardItem(IconData icon, String title) {
-    return Column(
-      children: [
-        Icon(icon, size: 40),
-        const SizedBox(height: 5),
-        Text(title),
-      ],
+class DashboardCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+
+  const DashboardCard({
+    super.key,
+    required this.icon,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 45),
+            const SizedBox(height: 10),
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
