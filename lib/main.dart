@@ -12,19 +12,34 @@ class SmartCampusApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Smart Campus Management',
-
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const HomeScreen(),
-        '/students': (context) => const StudentsScreen(),
-        '/faculty': (context) => const FacultyScreen(),
-      },
+      home: const DashboardScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  int studentCount = 0;
+
+  void addStudent() {
+    setState(() {
+      studentCount++;
+    });
+  }
+
+  void removeStudent() {
+    setState(() {
+      if (studentCount > 0) {
+        studentCount--;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,62 +52,31 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Smart Campus Dashboard',
+              'Student Management',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-
-            const SizedBox(height: 30),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/students');
-              },
-              child: const Text('Students'),
-            ),
-
-            const SizedBox(height: 15),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/faculty');
-              },
-              child: const Text('Faculty'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class StudentsScreen extends StatelessWidget {
-  const StudentsScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Students'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.school, size: 70),
-            const SizedBox(height: 15),
-            const Text(
-              'Student Management',
-              style: TextStyle(fontSize: 22),
+            const SizedBox(height: 20),
+            Text(
+              'Students: $studentCount',
+              style: const TextStyle(fontSize: 22),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Back'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: addStudent,
+                  child: const Text('Add Student'),
+                ),
+                const SizedBox(width: 15),
+                ElevatedButton(
+                  onPressed: removeStudent,
+                  child: const Text('Remove Student'),
+                ),
+              ],
             ),
           ],
         ),
@@ -101,35 +85,4 @@ class StudentsScreen extends StatelessWidget {
   }
 }
 
-class FacultyScreen extends StatelessWidget {
-  const FacultyScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Faculty'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.person, size: 70),
-            const SizedBox(height: 15),
-            const Text(
-              'Faculty Management',
-              style: TextStyle(fontSize: 22),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Back'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
