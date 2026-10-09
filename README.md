@@ -1,24 +1,52 @@
-<<<<<<< HEAD
-# smartcampusmanagementapp
+# SmartCampusManagementApp
 
-A new Flutter project.
+A Flutter-based Smart Campus Management application developed as part of Flutter lab experiments.
+
+## Features
+
+- Student Registration Form
+- UI Animations using Flutter
+- REST API Integration to fetch user details
+- Unit Testing using Flutter Test
+
+## Technologies Used
+
+- Flutter
+- Dart
+- HTTP package
+- JSONPlaceholder REST API
+
+## Experiments Completed
+
+- Experiment 7: Student Registration Form
+- Experiment 8: Flutter UI Animations
+- Experiment 9: REST API Integration
+- Experiment 10: Unit Testing
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone this repository.
+2. Open the project folder.
+3. Install dependencies:
 
-A few resources to get you started if this is your first Flutter project:
+   ```bash
+   flutter pub get
+   ```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+4. Run the application:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# SmartCampusManagementApp
->>>>>>> 196869c5c103b0d8b81a0ce91b70beae5e3a31a7
+   ```bash
+   flutter run
+   ```
 
+## Running Tests
 
+Run the following command:
 
+```bash
+flutter test
+```
+
+## Developer
+
+Smart Campus Management App — Flutter Lab Project
