@@ -24,57 +24,58 @@ A Flutter-based Smart Campus Management application developed as part of Flutter
 ## Experiments and Screenshots
 
 ### Experiment 1 – Smart Campus Welcome Screen
-Initial welcome screen for the Smart Campus application.
+This experiment focuses on creating a welcome screen for the Smart Campus Management application using Flutter. It displays the application title and welcome message with a simple and attractive user interface.
 
 ![Experiment 1](screenshots/Experiment1.png)
 
 ### Experiment 2 – Smart Campus Dashboard
-Dashboard showing Students, Faculty, and Events sections.
+In this experiment, a basic campus dashboard is developed with Students, Faculty, and Events sections. Flutter widgets and icons are used to organize the dashboard.
 
 ![Experiment 2](screenshots/Experiment2.png)
 
 ### Experiment 3 – Dashboard Cards
-Dashboard with Students, Faculty, Events, and Library cards.
+This experiment demonstrates the use of card layouts to display Students, Faculty, Events, and Library modules. Icons and labels are added to make the dashboard clear and organized.
 
 ![Experiment 3](screenshots/Experiment3.png)
 
 ### Experiment 4 – Dashboard Navigation
-Dashboard with navigation options for Students and Faculty.
+This experiment focuses on creating navigation options for Students and Faculty sections using Flutter buttons and interactive widgets.
+
 
 ![Experiment 4](screenshots/Experiment4.png)
 
 ### Experiment 5 – Student Management
-Student management screen with student count and Add Student / Remove Student actions.
+A Student Management screen is created to display the student count and provide Add Student and Remove Student actions using Flutter widgets.
 
 ![Experiment 5](screenshots/Experiment5.png)
 
 ### Experiment 6 – Campus Overview Dashboard
-Campus overview showing student, faculty, and event counts.
+This experiment displays campus information such as student, faculty, and event counts using dashboard cards, icons, and a View Campus Details button.
+
 
 ![Experiment 6](screenshots/Experiment6.png)
 
 ### Experiment 7 – Student Registration Form
-Registration form with Full Name, Email Address, Student ID, course selection, and Register Student button.
+A student registration form is developed with Full Name, Email Address, Student ID, course selection, and a Register Student button.
 
 ![Experiment 7](screenshots/Experiment7.png)
 
 ### Experiment 8 – Flutter UI Animations
-Demonstrates AnimatedContainer, fade animation, and slide animation.
+This experiment demonstrates Flutter animations using AnimatedContainer, AnimatedOpacity, and AnimatedPositioned to create container, fade, and slide effects.
 
 ![Experiment 8](screenshots/Experiment8.png)
 
 ### Experiment 9 – REST API Integration
-Fetches user details from JSONPlaceholder and displays names and email addresses.
+
+The JSONPlaceholder REST API is integrated using the HTTP package to fetch user details and display names and email addresses in the application.
 
 ![Experiment 9](screenshots/Experiment9.png)
 
 ### Experiment 10 – Unit Testing
-Created a Calculator class with addition and subtraction methods and tested them using Flutter Test.
+
+A Calculator class is created with addition and subtraction methods. Flutter Test is used to verify the operations, and all three tests passed successfully.
 
 **Test result:** `+3: All tests passed!`
-
-> Add your terminal screenshot as `screenshots/experiment10.png` and then add this line below:
-> `![Experiment 10](screenshots/experiment10.png)`
 
 ## Getting Started
 
